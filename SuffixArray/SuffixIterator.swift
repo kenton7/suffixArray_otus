@@ -51,27 +51,3 @@ extension Array {
     }
 }
 
-//struct SuffixIterator: IteratorProtocol {
-//    private let word: String
-//    private var currentIndex: String.Index
-//    private var suffixCounts: [Substring: Int]
-//
-//    init(word: String) {
-//        self.word = word
-//        self.currentIndex = word.startIndex
-//        self.suffixCounts = [:]
-//    }
-//
-//    mutating func next() -> Substring? {
-//        guard currentIndex < word.endIndex else { return nil }
-//        defer { currentIndex = word.index(after: currentIndex) }
-//        let suffix = word[currentIndex..<word.endIndex]
-//        suffixCounts[suffix, default: 0] += 1
-//        return suffix
-//    }
-//
-//    func count() -> [Substring: Int] {
-//        return suffixCounts
-//    }
-//}
-
