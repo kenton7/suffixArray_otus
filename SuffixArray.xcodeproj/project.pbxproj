@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		096015A62BDF81010002A3CE /* SearchHistoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096015A52BDF81010002A3CE /* SearchHistoryScreen.swift */; };
+		096015A82BDF86140002A3CE /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096015A72BDF86140002A3CE /* Job.swift */; };
+		096015AA2BDF86B70002A3CE /* JobScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096015A92BDF86B70002A3CE /* JobScheduler.swift */; };
 		09A27FC72BCBD55100594E87 /* SuffixArrayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A27FC62BCBD55100594E87 /* SuffixArrayApp.swift */; };
 		09A27FC92BCBD55100594E87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A27FC82BCBD55100594E87 /* ContentView.swift */; };
 		09A27FCB2BCBD55200594E87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09A27FCA2BCBD55200594E87 /* Assets.xcassets */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		096015A52BDF81010002A3CE /* SearchHistoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryScreen.swift; sourceTree = "<group>"; };
+		096015A72BDF86140002A3CE /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		096015A92BDF86B70002A3CE /* JobScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobScheduler.swift; sourceTree = "<group>"; };
 		09A27FC32BCBD55100594E87 /* SuffixArray.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuffixArray.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A27FC62BCBD55100594E87 /* SuffixArrayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuffixArrayApp.swift; sourceTree = "<group>"; };
 		09A27FC82BCBD55100594E87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +70,9 @@
 				09A27FCC2BCBD55200594E87 /* Preview Content */,
 				09A27FDA2BCD1E7000594E87 /* StatisticScreen.swift */,
 				09A27FDC2BD1855300594E87 /* TopTenSuffixes.swift */,
+				096015A52BDF81010002A3CE /* SearchHistoryScreen.swift */,
+				096015A72BDF86140002A3CE /* Job.swift */,
+				096015A92BDF86B70002A3CE /* JobScheduler.swift */,
 			);
 			path = SuffixArray;
 			sourceTree = "<group>";
@@ -150,7 +159,10 @@
 				09A27FD72BCC3CF900594E87 /* SuffixIterator.swift in Sources */,
 				09A27FDB2BCD1E7000594E87 /* StatisticScreen.swift in Sources */,
 				09A27FDD2BD1855300594E87 /* TopTenSuffixes.swift in Sources */,
+				096015A62BDF81010002A3CE /* SearchHistoryScreen.swift in Sources */,
+				096015A82BDF86140002A3CE /* Job.swift in Sources */,
 				09A27FC72BCBD55100594E87 /* SuffixArrayApp.swift in Sources */,
+				096015AA2BDF86B70002A3CE /* JobScheduler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
