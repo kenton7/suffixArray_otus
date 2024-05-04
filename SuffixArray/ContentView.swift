@@ -27,7 +27,6 @@ struct ContentView: View {
                     isShowing = true
                     allSuffixes += SuffixSequence(word: textForTextField).map {$0}.sorted()
                     suffixArray = SuffixSequence(word: textForTextField).map {$0}.sorted()
-                    textForTextField = ""
                 }, label: {
                     HStack {
                         Text("Проверить суффиксный массив")
@@ -48,12 +47,9 @@ struct ContentView: View {
                 }
             
             
-            StatisticScreen(suffixArray: allSuffixes).tag(1)
+            StatisticScreen(suffixArray: allSuffixes, searchingWord: textForTextField).tag(1)
                 .tabItem { Label("Статистика", systemImage: "chart.pie.fill") }
         }
     }
 }
 
-//#Preview {
-//    ContentView()
-//}

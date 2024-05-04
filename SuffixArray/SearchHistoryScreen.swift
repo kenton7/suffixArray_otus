@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct SearchHistoryScreen: View {
+    
+    private let jobScheduler = JobScheduler()
+    var suffixes: [[String: String]]
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            List {
+                let allExecutionTimes = suffixes.flatMap { $0.values.map { Double($0) ?? 0 } }
+                let minExecutionTime = allExecutionTimes.min() ?? 0
+                let maxExecutionTime = allExecutionTimes.max() ?? 0
+                
+                ForEach(suffixes, id: \.self) { dict in
+                    ForEach(dict.sorted(by: <), id: \.key) {
+                        let executionTime = Double($1) ?? 0
+                        Text("Суффикс \"\($0)\" найден за \($1) секунд")
+                            .background(Rectangle().fill(executionTime == minExecutionTime ? .green : .clear))
+                            .background(Rectangle().fill(executionTime == maxExecutionTime ? .red : .clear))
+                    }
+                }
+            }
     }
-}
-
-#Preview {
-    SearchHistoryScreen()
 }

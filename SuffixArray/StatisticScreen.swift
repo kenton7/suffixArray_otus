@@ -14,8 +14,11 @@ struct StatisticScreen: View {
     @State private var selectedTab = 0
     @State private var isSortingPressed = false
     @State var suffixesDict: [Substring: Int] = [:]
+    @State var suffixAndExecutionTime: [String: String] = [:]
+    @State var allSuffixesAndExecutionTimes: [[String: String]] = [[:]]
     @State private var previousSuffixArray: [Substring] = []
-    @State var searchQuery = ""
+    private let jobScheduler = JobScheduler()
+    var searchingWord: String
     
     var sortedPairs: [(key: Substring, value: Int)] {
         return isSortingPressed ? suffixesDict.sorted(by: { $0.key < $1.key }) : suffixesDict.sorted(by: { $1.key < $0.key })
@@ -25,18 +28,14 @@ struct StatisticScreen: View {
         let filteredSortedPairs = sortedPairs.filter { $0.key.count >= 3 }.sorted { $0.value > $1.value }
         return Array(filteredSortedPairs.prefix(10))
     }
-    
-    init(suffixArray: [Substring]) {
-        self.suffixArray = suffixArray
-    }
-    
-    
+
     var body: some View {
         
         VStack {
             Picker("", selection: $selectedTab) {
                 Text("Статистика").tag(0)
-                Text("Топ-10 суффиксов").tag(1)
+                Text("Топ-10").tag(1)
+                Text("История").tag(2)
             }.pickerStyle(.segmented)
                 .padding()
             
@@ -56,6 +55,12 @@ struct StatisticScreen: View {
                     .tabViewStyle(.page(indexDisplayMode: .never))
                 
                 TopTenSuffixes(topTen: topTen).tag(1)
+                
+                SearchHistoryScreen(suffixes: allSuffixesAndExecutionTimes).tag(2)
+                    .task {
+                        allSuffixesAndExecutionTimes.append(await jobScheduler.newSearch(text: searchingWord))
+                        await jobScheduler.start()
+                    }
             }
         }
         .onChange(of: suffixArray, { _, newValue in
@@ -70,8 +75,3 @@ struct StatisticScreen: View {
         }
     }
 }
-
-
-//#Preview {
-//    StatisticScreen(suffixArray: SuffixSequence(word: "абракадабра").map {$0}.sorted(), word: "абракадабра")
-//}
